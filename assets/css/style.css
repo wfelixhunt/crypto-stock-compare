@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background: linear-gradient(100deg, #ce003d, #2e4bc6);
+    background-size: 400% 400%;
+    animation: gradientFade 5s ease infinite;
+}
+
+@keyframes gradientFade {
+    0% {
+        background-position: 47% 0%;
+    }
+    
+    50% {
+        background-position: 54% 100%;
+    }
+
+    100% {
+        background-position: 47% 0%;
+    }
+}
+
