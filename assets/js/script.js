@@ -8,11 +8,17 @@ $(".cryptoBtn").click(function(){
     fetch(cryptoUrl).then(function(response){
         if(response.ok){
         response.json().then(function(cryptoInfo){
-            console.log(cryptoInfo);
-            // // returns array index featuring searchvalue
-            // var filteredInfo = cryptoInfo.filter(function(data){
-            //     return data.symbol = crypto;
-            // })
+            // loop thru cryptoInfo.data to find the entry matching the user input
+            for(var i = 0; i < cryptoInfo.data.length; i++){
+                // if the currently indexed entry matches the user input, declare the desired data as a variable
+                if(cryptoInfo.data[i].symbol === crypto){
+                    var target = cryptoInfo.data[i];
+                }
+            };
+            // consoleLog the desired object
+            console.log(target);
+            var price = target.price_usd
+            console.log(price);
         })
     }
 });
