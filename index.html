@@ -20,8 +20,10 @@
           <h2>Cryptocurrency</h2>
           <div class="ui search small">
             <div class="ui icon input" id="crypto-search">
-              <input class="prompt" type="text" placeholder="Bitcoin...">
-              <i class="search icon"></i>
+              <input class="prompt" id="cryptoInput" type="text" placeholder="Bitcoin...">
+              <button class="cryptoBtn">
+                <i class="search icon"></i>
+              </button>
             </div>
             <div class="results"></div>
           </div>
@@ -31,8 +33,10 @@
           <h2>Traditional Stocks</h2>
           <div class="ui search small" id="stock-search">
             <div class="ui icon input">
-              <input class="prompt" type="text" placeholder="IBM...">
+              <input class="prompt" id="stockInput" type="text" placeholder="IBM...">
+              <button class="stockBtn">
               <i class="search icon"></i>
+              </button>
             </div>
             <div class="results"></div>
           </div>
@@ -45,7 +49,8 @@
   <footer>
     Data provided by CoinLore© & Alpha Vantage© 2021
   </footer>
-  <script src="assets/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
