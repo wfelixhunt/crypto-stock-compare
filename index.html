@@ -1,15 +1,50 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" />
+  <title>Stocks & Crypto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
+  <header>
+    <h1><i class="chart line icon"></i>Crypto Stock Compare</h1>
+  </header>
+
+  <main>
+    <section class="ui two column grid">
+      <div class="row">
+        <div class="ui column class-box" id="crypto-container">
+          <h2>Cryptocurrency</h2>
+          <div class="ui search small">
+            <div class="ui icon input" id="crypto-search">
+              <input class="prompt" type="text" placeholder="Bitcoin...">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>
+          <div class="crypto-data"></div>
+        </div>
+        <div class="ui column class-box" id="stock-container">
+          <h2>Traditional Stocks</h2>
+          <div class="ui search small" id="stock-search">
+            <div class="ui icon input">
+              <input class="prompt" type="text" placeholder="IBM...">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>
+          <div class="stock-data"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Data provided by CoinLore© & Alpha Vantage© 2021
+  </footer>
   <script src="assets/js/script.js"></script>
 </body>
 
