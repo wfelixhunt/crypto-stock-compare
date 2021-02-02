@@ -3,7 +3,6 @@ var cryptoUrl = "https://api.coinlore.net/api/tickers/";
 $(".cryptoBtn").click(function(){
     //define variable of crypto search input
     var crypto = $("#cryptoInput").val().trim();
-
     // fetch crypto data
     fetch(cryptoUrl).then(function(response){
         if(response.ok){
@@ -15,17 +14,14 @@ $(".cryptoBtn").click(function(){
                     var target = cryptoInfo.data[i];
                 }
             };
-            // consoleLog the desired object
+            // declare variable for current price
             console.log(target);
             var price = target.price_usd
             console.log(price);
         })
     }
+    });    
 });
-    
-})
-
-
 
 
 // stock search button is clicked
