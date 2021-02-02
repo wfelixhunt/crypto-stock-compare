@@ -1,21 +1,54 @@
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
 header, footer {
   padding: 20px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #66FF00;
-  color: #ffffff;
+  background-color: rgb(29, 29, 29);
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 10px;
+}
+
+h1, h2 {
+  padding: 1vw;
+  border-bottom: 1px solid greenyellow;
+}
+
+.icon {
+  color: greenyellow;
 }
 
 main {
   padding: 2vw;
+  height: 100%;
+  background-color: whitesmoke;
+  /* overflow: auto; */
 }
 
 .class-box {
   height: 44vw;
-  background: #9b59b6;
-  text-align: center;
-  color: #fff;
-  padding: 40px;
+  background: rgb(36, 36, 36);
+  color: whitesmoke;
+  padding: 20px;
   border-radius: 10px;
-  /* margin: 1vw; */
-  justify-content: space-between;
+  border: 5px solid whitesmoke;
 }
+
+h2 {
+  text-align: left;
+}
+
+.search {
+  float: right;
+}
+
+
