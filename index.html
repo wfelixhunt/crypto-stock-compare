@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stocks & Crypto</title>
+  <title>Crypto Stock Wallet</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
   <header>
-    <h1><i class="chart line icon"></i>Crypto Stock Compare</h1>
+    <h1><i class="chart line icon"></i>Crypto Stock Wallet</h1>
   </header>
 
   <main>
     <section class="ui two column stackable grid">
-      <div class="two column row">
+      <div class="two column row" id="main-content">
         <div class="column class-box" id="crypto-container">
           <h2>Cryptocurrency</h2>
             <div class="ui small search">
@@ -25,7 +25,6 @@
                   <i class="search icon"></i>
                 </button>
               </div>
-            <div class="results"></div>
           </div>
           <div class="crypto-data"></div>
         </div>
@@ -38,7 +37,6 @@
                 <i class="search icon"></i>
               </button>
             </div>
-            <div class="results"></div>
           </div>
           <div class="stock-data"></div>
         </div>
