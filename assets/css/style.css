@@ -66,7 +66,20 @@ h2 {
 }
 
 .savedBtn {
-  margin: 15px;
+  margin: 15px !important;
+  color: yellowgreen !important;
 }
 
+.search-return {
+  margin-top: 60px;
+  background-color: rgb(29, 29, 29);
+  border: 1px solid whitesmoke;
+  color:yellowgreen;
+  border-radius: 10px;
+}
+
+.amount {
+  padding: 20px !important;
+  color: whitesmoke;
+}
 
