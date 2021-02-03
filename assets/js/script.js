@@ -17,7 +17,9 @@ $(".cryptoBtn").click(function () {
                 // declare variable for current price
                 console.log(target);
                 var price = target.price_usd
-                console.log(price);
+                var changeHour = target.percent_change_1h;
+                var changeWeek = target.percent_change_7d;
+                console.log(changeWeek);
 
                 $(".crypto-data").append(
                     `<div class="search-return">
@@ -50,9 +52,10 @@ $(".stockBtn").click(function () {
                 //convert returned object to array to find latest entry
                 var arr = Object.entries(obj)
                 // variable for closing price of most recent business day
+                var dailyHigh = arr[0][1]["2. high"];
+                var dailyLow = arr[0][1]["3. low"];
                 var close = arr[0][1]["4. close"];
-                console.log(close);
-
+            
 
                 $(".stock-data").append(
                     `<div class="search-return">
