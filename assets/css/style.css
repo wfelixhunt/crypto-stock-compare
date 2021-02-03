@@ -1,3 +1,87 @@
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+header, footer {
+  padding: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: rgb(29, 29, 29);
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 10px;
+}
+
+h1, h2 {
+  padding: 1vw;
+  border-bottom: 1px solid greenyellow;
+}
+
+.icon {
+  color: greenyellow;
+}
+
+main {
+  padding: 2vw;
+  height: 100%;
+  background-color: whitesmoke;
+  
+}
+
+#main-content {
+  padding-top: 15px;
+}
+
+.class-box {
+  height: 44vw;
+  background: rgb(36, 36, 36);
+  color: whitesmoke;
+  padding: 20px;
+  border-radius: 10px;
+  border: 5px solid whitesmoke;
+}
+
+h2 {
+  text-align: left;
+}
+
+.search {
+  float: right;
+}
+
+.stock-data, .crypto-data {
+  height: 28vw;
+  border-bottom: 1px solid greenyellow;
+}
+
+.stockSearches, .cryptoSearches {
+  padding: 15px;
+
+}
+
+.savedBtn {
+  margin: 15px !important;
+  color: yellowgreen !important;
+}
+
+.search-return {
+  margin-top: 60px;
+  background-color: rgb(29, 29, 29);
+  border: 1px solid whitesmoke;
+  color:yellowgreen;
+  border-radius: 10px;
+}
+
+.amount {
+  padding: 20px !important;
+  color: whitesmoke;
+=======
 * {
     margin: 0;
     padding: 0;

@@ -1,35 +1,56 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stocks & Crypto</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" />
+  <title>Crypto Stock Wallet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
-  <div class="header">
-    <h1>Crypto/Stock Comparison</h1>
-  </div>
-  <section class="stock-section">
-    <div class="stock-wrapper">
-      <div class="stock-container">
-        <div class="class-box">
-          <h4 class="stock-heading">Stocks</h4>
-          <p class="stock-text">/dnsdllm</p>
+  <header>
+    <h1><i class="chart line icon"></i>Crypto Stock Wallet</h1>
+  </header>
+
+  <main>
+    <section class="ui two column stackable grid">
+      <div class="two column row" id="main-content">
+        <div class="column class-box" id="crypto-container">
+          <h2>Cryptocurrency</h2>
+            <div class="ui small search">
+              <div class="ui input" id="crypto-search">
+                <input class="prompt" id="cryptoInput" type="text" placeholder="Bitcoin...">
+                <button class="ui icon inverted circular button cryptoBtn">
+                  <i class="search icon"></i>
+                </button>
+              </div>
+          </div>
+          <div class="crypto-data"></div>
+          <div class="cryptoSearches"></div>
         </div>
-        <div class="class-box">
-          <h4 class="stock-heading">Crypto</h4>
-          <p class="stock-text">sdlnsdlndslnsd;</p>
+        <div class="column class-box" id="stock-container">
+          <h2>Traditional Stocks</h2>
+          <div class="ui small search" id="stock-search">
+            <div class="ui icon input">
+              <input class="prompt" id="stockInput" type="text" placeholder="IBM...">
+              <button class="ui icon inverted circular button stockBtn">
+                <i class="search icon"></i>
+              </button>
+            </div>
+          </div>
+          <div class="stock-data"></div>
+          <div class="stockSearches" ></div>
         </div>
       </div>
-    </div>
-  </section>
-  <div class="background">
-  </div>
-  <script src="assets/js/script.js"></script>
+    </section>
+  </main>
+
+  <footer>
+    Data provided by CoinLore© & Alpha Vantage© 2021
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
