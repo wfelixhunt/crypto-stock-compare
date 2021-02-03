@@ -31,7 +31,12 @@ main {
   padding: 2vw;
   height: 100%;
   background-color: whitesmoke;
-  /* overflow: auto; */
+  
+}
+
+
+#main-content {
+  padding-top: 15px;
 }
 
 .class-box {
