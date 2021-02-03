@@ -18,7 +18,7 @@ footer {
   font-size: 10px;
 }
 
-h1, h2 {
+.main-title {
   padding: 1vw;
   border-bottom: 1px solid greenyellow;
 }
@@ -49,6 +49,14 @@ main {
 
 h2 {
   text-align: left;
+}
+
+.col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid greenyellow;
+  padding: 1vw;
 }
 
 .search {
