@@ -21,22 +21,22 @@ $(".cryptoBtn").click(function () {
                 var changeWeek = target.percent_change_7d;
                 console.log(changeWeek);
 
-                $(".crypto-data").append(
-                    `<div class="search-return">
-                <h1>${target.symbol}
-                <i class="chart bar icon"></i>
-                </h1>
-                <h3 class="amount">$${price}</h3>
-                </div>`
-                );
-                $(".cryptoSearches").append(
-                    `<button class='savedBtn ui inverted button'>
-                    ${target.symbol}
-                </button>`
-                );
-            })
-        }
-    });
+        $(".crypto-data").append(
+          `<div class="search-return">
+            <h1>
+              ${target.symbol}<i class="chart bar icon"></i>
+            </h1>
+            <h3 class="amount">$${price}</h3>
+          </div>`
+        );
+        $(".cryptoSearches").append(
+          `<button class='savedBtn ui inverted button'>
+            ${target.symbol}
+          </button>`
+        );
+      });
+    }
+  });
 });
 
 
