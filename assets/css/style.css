@@ -55,4 +55,18 @@ h2 {
   float: right;
 }
 
+.stock-data, .crypto-data {
+  height: 28vw;
+  border-bottom: 1px solid greenyellow;
+}
+
+.stockSearches, .cryptoSearches {
+  padding: 15px;
+
+}
+
+.savedBtn {
+  margin: 15px;
+}
+
 

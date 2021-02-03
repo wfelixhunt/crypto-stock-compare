@@ -18,6 +18,8 @@ $(".cryptoBtn").click(function(){
             console.log(target);
             var price = target.price_usd
             console.log(price);
+
+            $(".cryptoSearches").append("<button class='savedBtn'>" + target.symbol + "</button>")
         })
     }
     });    
@@ -38,6 +40,10 @@ $(".stockBtn").click(function(){
             // variable for closing price of most recent business day
             var close = arr[0][1]["4. close"];
             console.log(close);
+
+            $(".stockSearches").append("<button class='savedBtn'>" + stock + "</button>");
+
+
         })
     }
 });
