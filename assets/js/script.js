@@ -1,4 +1,9 @@
 var cryptoUrl = "https://api.coinlore.net/api/tickers/";
+var stockModal = document.getElementById("myStockModal");
+var cryptoModal = document.getElementById("myCryptoModal");
+var stockModalContent = document.getElementsByClassName("stockModalContent")
+var cryptoModalContent = document.getElementsByClassName("cryptoModalContent")
+
 
 $(".cryptoBtn").click(function () {
   //define variable of crypto search input
@@ -21,14 +26,18 @@ $(".cryptoBtn").click(function () {
         var changeWeek = target.percent_change_7d;
         console.log(changeWeek);
 
+        // prepends data readout to modal div
+        $(cryptoModalContent).prepend(`<h3>Change In Past Hour:  ${changeHour}%</h3>`)
+        $(cryptoModalContent).prepend(`<h3>Change In Past Week:  ${changeWeek}%</h3>`)
+        
+
         $(".crypto-data").append(
           `<div class="search-return">
             <h1>
               ${target.symbol}<i class="chart bar icon"></i>
             </h1>
-            <h4 class="amount">${changeHour}% Change In Last Hour<h2>
-            <h4 class="amount">${changeWeek}% Change In Last Week<h2>
             <h3 class="amount">Current Price: $${price}</h3>
+            <button id ='modalBtnCrypto' class='ui inverted button'> more info </button>
           </div>`
         );
         $(".cryptoSearches").append(
@@ -57,14 +66,17 @@ $(".stockBtn").click(function () {
         var dailyLow = arr[0][1]["3. low"];
         var close = arr[0][1]["4. close"];
 
+          // prepends data readout to modal div
+        $(stockModalContent).prepend(`<h3>Daily High: $${dailyHigh}</h3>`)
+        $(stockModalContent).prepend(`<h3>Daily Low: $${dailyLow}</h3>`)
+
         $(".stock-data").append(
           `<div class="search-return">
             <h1>${stock}
               <i class="chart bar icon"></i>
             </h1>
-            <h4 class="amount">Daily High: $${dailyHigh}<h2>
-            <h4 class="amount">Daily Low: $${dailyLow}<h2>
             <h3 class="amount">Closing Price: $${close}</h3>
+            <button id ='modalBtnStock' class='ui inverted button'> more info </button>
           </div>`
         );
         $(".stockSearches").append(
@@ -76,4 +88,23 @@ $(".stockBtn").click(function () {
     }
   });
 });
+
+$(".stock-data").on("click", "button", function(event){
+  $(".modalStockDiv").modal('show')
+});
+
+$(".crypto-data").on("click", "button", function(event){
+  $(".modalCryptoDiv").modal('show')
+});
+
+
+
+
+
+
+
+
+
+
+
 
