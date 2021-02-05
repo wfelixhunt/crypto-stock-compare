@@ -67,8 +67,8 @@ $(".stockBtn").click(function () {
         var close = arr[0][1]["4. close"];
 
           // prepends data readout to modal div
-        $(stockModalContent).prepend(`<h3>Daily High: $${dailyHigh}</h3>`)
-        $(stockModalContent).prepend(`<h3>Daily Low: $${dailyLow}</h3>`)
+        $(stockModalContent).append(`<h3>Daily High: $${dailyHigh}</h3>`)
+        $(stockModalContent).append(`<h3>Daily Low: $${dailyLow}</h3>`)
 
         $(".stock-data").append(
           `<div class="search-return">
