@@ -39,7 +39,7 @@ main {
 }
 
 .class-box {
-  height: 44vw;
+  height: 100vh;
   background: rgb(36, 36, 36);
   color: whitesmoke;
   padding: 20px;
@@ -51,17 +51,20 @@ h2 {
   text-align: left;
 }
 
-.search {
+/* .search {
   float: right;
-}
+} */
 
 .stock-data, .crypto-data {
-  height: 28vw;
-  border-bottom: 1px solid greenyellow;
+  overflow: hidden;
+  min-height: 450px;
+
 }
 
 .stockSearches, .cryptoSearches {
   padding: 15px;
+  border-top: 1px solid greenyellow;
+  height: 150px;
 
 }
 
@@ -83,3 +86,6 @@ h2 {
   color: whitesmoke;
 }
 
+#modalBtnStock, #modalBtnCrypto {
+  margin: 20px;
+}
