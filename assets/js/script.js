@@ -50,12 +50,12 @@ var cryptoSearch = function (crypto) {
         //appends data from search
         $(".crypto-data").append(
           `<div class="search-return">
-             <h1>
-               ${target.symbol}<i class="chart bar icon"></i>
-             </h1>
-             <h3 class="amount">Current Price: $${price}</h3>
-             <button id ='modalBtnCrypto' class='ui inverted button'> More Info </button>
-           </div>`
+            <h1>
+              ${target.symbol}<i class="chart bar icon"></i>
+            </h1>
+            <h3 class="amount">Current Price: $${price}</h3>
+            <button id ='modalBtnCrypto' class='ui inverted button'> More Info </button>
+          </div>`
         );
 
         // If the searched symbol does not appear already in storage, svae button and push to local storage 
@@ -64,8 +64,8 @@ var cryptoSearch = function (crypto) {
           localStorage.setItem("crypto", JSON.stringify(cryptoArr).toUpperCase())
           $(".cryptoSearches").append(
             `<button class='savedBtn ui inverted button'>
-               ${target.symbol}
-             </button>`
+              ${target.symbol}
+            </button>`
           );
         }
       });
@@ -142,8 +142,8 @@ function renderCryptoBtns() {
   for (var i = 0; i < cryptoArr.length; i++) {
     $(".cryptoSearches").append(
       `<button class='savedBtn ui inverted button'>
-         ${cryptoArr[i]}
-       </button>`
+        ${cryptoArr[i]}
+      </button>`
     );
   }
 }
@@ -154,8 +154,8 @@ function renderStockBtns() {
   for (var i = 0; i < stockArr.length; i++) {
     $(".stockSearches").append(
       `<button class='savedBtn ui inverted button'>
-         ${stockArr[i]}
-       </button>`
+        ${stockArr[i]}
+      </button>`
     );
   }
 }
