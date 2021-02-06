@@ -58,9 +58,10 @@ var cryptoSearch = function (crypto) {
            </div>`
         );
         
-        if(!cryptoArr.includes(crypto)){
-          cryptoArr.unshift(crypto);
-          localStorage.setItem("crytpo", JSON.stringify(cryptoArr).toUpperCase())
+        // If the searched symbol does not appear already in storage, svae button and push to local storage 
+        if(!cryptoArr.includes(target.symbol)){
+          cryptoArr.unshift(target.symbol);
+          localStorage.setItem("crypto", JSON.stringify(cryptoArr).toUpperCase())
           $(".cryptoSearches").append(
             `<button class='savedBtn ui inverted button'>
                ${target.symbol}
@@ -129,7 +130,17 @@ var stockSearch = function (stock) {
   });
 };
 
+renderBtns(cryptoArr);
 
+function renderBtns(){
+  for(var i = 0; i < cryptoArr.length; i++){
+    $(".cryptoSearches").append(
+      `<button class='savedBtn ui inverted button'>
+         ${cryptoArr[i]}
+       </button>`
+    );
+  }
+}
 
 $(".stockSearches").on("click", "button", function(event){
   var stock = $(event.target).html().trim();
