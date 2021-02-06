@@ -38,6 +38,11 @@ var cryptoSearch = function (crypto) {
           `<h3>Change In Past Week:  ${changeWeek}%</h3>`
         );
 
+
+        // Clears container div before appending new search
+        $(".crypto-data").html(" ");
+
+        //appends data from search
         $(".crypto-data").append(
           `<div class="search-return">
              <h1>
@@ -60,6 +65,7 @@ var cryptoSearch = function (crypto) {
 // stock search button is clicked
 $(".stockBtn").click(function () {
   var stock = $("#stockInput").val().trim();
+  console.log(stock)
   stockSearch(stock);
 });
 
@@ -84,6 +90,11 @@ var stockSearch = function (stock) {
         $(stockModalContent).append(`<h3>Daily High: $${dailyHigh}</h3>`);
         $(stockModalContent).append(`<h3>Daily Low: $${dailyLow}</h3>`);
 
+
+        // Clears container div before appending new search
+        $(".stock-data").html(" ");
+
+        //appends data from search
         $(".stock-data").append(
           `<div class="search-return">
             <h1>${stock}
@@ -102,6 +113,16 @@ var stockSearch = function (stock) {
     }
   });
 };
+
+$(".stockSearches").on("click", "button", function(event){
+  var stock = $(event.target).html().trim();
+  stockSearch(stock);
+});
+
+$(".cryptoSearches").on("click", "button", function(event){
+  var crypto = $(event.target).html().trim();
+  cryptoSearch(crypto);
+});
 
 $(".stock-data").on("click", "button", function (event) {
   $(".modalStockDiv").modal("show");
