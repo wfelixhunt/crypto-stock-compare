@@ -9,8 +9,8 @@ var stockArr = JSON.parse(localStorage.getItem("stock")) || []
 $(".cryptoBtn").click(function () {
   //define variable of crypto search input
   var crypto = $("#cryptoInput").val().trim();
+  $("#cryptoInput").val("");
   cryptoSearch(crypto)
-  console.log(crypto.toLowerCase())
 });
 
 var cryptoSearch = function (crypto) {
