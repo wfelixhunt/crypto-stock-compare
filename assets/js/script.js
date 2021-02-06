@@ -21,7 +21,7 @@ var cryptoSearch = function (crypto) {
         // loop thru cryptoInfo.data to find the entry matching the user input
         for (var i = 0; i < cryptoInfo.data.length; i++) {
           // if the currently indexed entry matches the user input, declare the desired data as a variable
-          if (cryptoInfo.data[i].symbol === crypto || cryptoInfo.data[i].name === crypto || cryptoInfo.data[i].symbol === crypto.toUpperCase() || cryptoInfo.data[i].name.toLowerCase() === crypto ) {
+          if (cryptoInfo.data[i].symbol === crypto || cryptoInfo.data[i].name === crypto || cryptoInfo.data[i].symbol === crypto.toUpperCase() || cryptoInfo.data[i].name.toLowerCase() === crypto) {
             var target = cryptoInfo.data[i];
           }
         }
@@ -54,12 +54,12 @@ var cryptoSearch = function (crypto) {
                ${target.symbol}<i class="chart bar icon"></i>
              </h1>
              <h3 class="amount">Current Price: $${price}</h3>
-             <button id ='modalBtnCrypto' class='ui inverted button'> more info </button>
+             <button id ='modalBtnCrypto' class='ui inverted button'> More Info </button>
            </div>`
         );
-        
+
         // If the searched symbol does not appear already in storage, svae button and push to local storage 
-        if(!cryptoArr.includes(target.symbol)){
+        if (!cryptoArr.includes(target.symbol)) {
           cryptoArr.unshift(target.symbol);
           localStorage.setItem("crypto", JSON.stringify(cryptoArr).toUpperCase())
           $(".cryptoSearches").append(
@@ -75,8 +75,8 @@ var cryptoSearch = function (crypto) {
 
 // stock search button is clicked
 $(".stockBtn").click(function () {
-  var stock = $("#stockInput").val().trim();
-  console.log(stock)
+  var stock = $("#stockInput").val().trim().toUpperCase();
+  $("#stockInput").val("");
   stockSearch(stock);
 });
 
@@ -98,7 +98,7 @@ var stockSearch = function (stock) {
         var close = arr[0][1]["4. close"];
 
         console.log(dailyHigh)
-     
+
         // clears modal before appending new data
         $(stockModalContent).html("");
 
@@ -117,23 +117,29 @@ var stockSearch = function (stock) {
               <i class="chart bar icon"></i>
             </h1>
             <h3 class="amount">Closing Price: $${close}</h3>
-            <button id ='modalBtnStock' class='ui inverted button'> more info </button>
+            <button id ='modalBtnStock' class='ui inverted button'> More Info </button>
           </div>`
         );
-        $(".stockSearches").append(
-          `<button class='savedBtn ui inverted button'>
-            ${stock}
-          </button>`
-        );
+
+        // If the searched symbol does not appear already in storage, save button and push to local storage 
+        if (!stockArr.includes(stock)) {
+          stockArr.unshift(stock);
+          localStorage.setItem("stock", JSON.stringify(stockArr).toUpperCase())
+          $(".stockSearches").append(
+            `<button class='savedBtn ui inverted button'>
+              ${stock}
+            </button>`
+          );
+        }
       });
     }
   });
 };
 
-renderBtns(cryptoArr);
+renderCryptoBtns(cryptoArr);
 
-function renderBtns(){
-  for(var i = 0; i < cryptoArr.length; i++){
+function renderCryptoBtns() {
+  for (var i = 0; i < cryptoArr.length; i++) {
     $(".cryptoSearches").append(
       `<button class='savedBtn ui inverted button'>
          ${cryptoArr[i]}
@@ -142,12 +148,24 @@ function renderBtns(){
   }
 }
 
-$(".stockSearches").on("click", "button", function(event){
+renderStockBtns(stockArr);
+
+function renderStockBtns() {
+  for (var i = 0; i < stockArr.length; i++) {
+    $(".stockSearches").append(
+      `<button class='savedBtn ui inverted button'>
+         ${stockArr[i]}
+       </button>`
+    );
+  }
+}
+
+$(".stockSearches").on("click", "button", function (event) {
   var stock = $(event.target).html().trim();
   stockSearch(stock);
 });
 
-$(".cryptoSearches").on("click", "button", function(event){
+$(".cryptoSearches").on("click", "button", function (event) {
   var crypto = $(event.target).html().trim();
   cryptoSearch(crypto);
 });
