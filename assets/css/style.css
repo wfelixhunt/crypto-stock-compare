@@ -30,7 +30,6 @@ h1, h2 {
 main {
   padding: 2vw;
   min-height: calc(100vh - 40px);
-  /* height: auto !important; */
   background-color: rgb(32, 32, 32);
   border-left: 1px solid whitesmoke;
   border-right: 1px solid whitesmoke;
