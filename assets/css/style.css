@@ -1,37 +1,43 @@
 body {
-  position: relative;
-  min-height: 100vh;
+  height: fit-content;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; 
+  /* position: relative; */
+  /* min-height: 100vw; */
 }
 
 header, footer {
+  background-image: initial;
   padding: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: rgb(29, 29, 29);
+  background-color: rgb(26, 26, 26);
   color: whitesmoke;
   border: 1px solid whitesmoke;
 }
 
 footer {
   position: relative;
+  /* margin-top: 20px; */
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   font-size: 10px;
 }
 
 h1, h2 {
   padding: 1vw;
-  border-bottom: 1px solid greenyellow;
+  border-bottom: 1px solid yellowgreen;
 }
 
 .icon {
-  color: greenyellow;
+  color: yellowgreen;
 }
 
 main {
   padding: 2vw;
-  height: 100%;
-  background-color: whitesmoke;
-  
+  min-height: calc(100vh - 40px);
+  /* height: auto !important; */
+  background-color: rgb(32, 32, 32);
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+
 }
 
 #main-content {
@@ -39,45 +45,44 @@ main {
 }
 
 .class-box {
-  height: 100vh;
-  background: rgb(36, 36, 36);
+  /* height: 100vh; */
+  background: rgb(42, 42, 42);
   color: whitesmoke;
   padding: 20px;
-  border-radius: 10px;
-  border: 5px solid whitesmoke;
+  border-radius: 20px;
+  border: 10px solid rgb(32, 32, 32);
 }
 
 h2 {
   text-align: left;
 }
 
-/* .search {
-  float: right;
-} */
+.circular {
+  margin-left: 5px !important;
+}
 
 .stock-data, .crypto-data {
   overflow: hidden;
-  min-height: 450px;
-
+  min-height: 350px;
 }
 
 .stockSearches, .cryptoSearches {
-  padding: 15px;
-  border-top: 1px solid greenyellow;
-  height: 150px;
-
+  text-align: center;
+  border-top: 1px solid yellowgreen;
 }
 
 .savedBtn {
-  margin: 15px !important;
+  margin: 10px !important;
   color: yellowgreen !important;
+  background-color: rgb(26, 26, 26) !important;
+  min-width: 100px;
 }
 
 .search-return {
   margin-top: 60px;
   background-color: rgb(29, 29, 29);
   border: 1px solid whitesmoke;
-  color:yellowgreen;
+  color: yellowgreen;
   border-radius: 10px;
 }
 
@@ -87,5 +92,6 @@ h2 {
 }
 
 #modalBtnStock, #modalBtnCrypto {
+  color: yellowgreen;
   margin: 20px;
 }

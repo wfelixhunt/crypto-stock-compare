@@ -9,6 +9,7 @@ var stockArr = JSON.parse(localStorage.getItem("stock")) || []
 $(".cryptoBtn").click(function () {
   //define variable of crypto search input
   var crypto = $("#cryptoInput").val().trim();
+  $("#cryptoInput").val("");
   cryptoSearch(crypto)
   console.log(crypto.toLowerCase())
 });
@@ -53,8 +54,8 @@ var cryptoSearch = function (crypto) {
              <h1>
                ${target.symbol}<i class="chart bar icon"></i>
              </h1>
-             <h3 class="amount">Current Price: $${price}</h3>
-             <button id ='modalBtnCrypto' class='ui inverted button'> more info </button>
+             <h2 class="amount">Current Price: $${price}</h2>
+             <button id ='modalBtnCrypto' class='ui inverted button'> More Info </button>
            </div>`
         );
         
@@ -75,7 +76,8 @@ var cryptoSearch = function (crypto) {
 
 // stock search button is clicked
 $(".stockBtn").click(function () {
-  var stock = $("#stockInput").val().trim();
+  var stock = $("#stockInput").val().trim().toUpperCase();
+  $("#stockInput").val("");
   console.log(stock)
   stockSearch(stock);
 });
@@ -96,15 +98,15 @@ var stockSearch = function (stock) {
         var dailyHigh = arr[0][1]["2. high"];
         var dailyLow = arr[0][1]["3. low"];
         var close = arr[0][1]["4. close"];
-
-        console.log(dailyHigh)
      
         // clears modal before appending new data
         $(stockModalContent).html("");
 
         // prepends data readout to modal div
-        $(stockModalContent).append(`<h3>Daily High: $${dailyHigh}</h3>`);
-        $(stockModalContent).append(`<h3>Daily Low: $${dailyLow}</h3>`);
+        $(stockModalContent).append(`<h2>Daily High: $${dailyHigh}</h2>`);
+        $(stockModalContent).append(`<h2>Daily Low: $${dailyLow}</h2>`);
+
+        console.log(stockInfo)
 
 
         // Clears container div before appending new search
@@ -116,15 +118,20 @@ var stockSearch = function (stock) {
             <h1>${stock}
               <i class="chart bar icon"></i>
             </h1>
-            <h3 class="amount">Closing Price: $${close}</h3>
-            <button id ='modalBtnStock' class='ui inverted button'> more info </button>
+            <h2 class="amount">Closing Price: $${close}</h2>
+            <button id ='modalBtnStock' class='ui inverted button'> More Info </button>
           </div>`
         );
-        $(".stockSearches").append(
-          `<button class='savedBtn ui inverted button'>
-            ${stock}
-          </button>`
-        );
+        // If the searched symbol does not appear already in storage, save button and push to local storage 
+        if (!stockArr.includes(stock)) {
+          stockArr.unshift(stock);
+          localStorage.setItem("stock", JSON.stringify(stockArr).toUpperCase())
+          $(".stockSearches").append(
+            `<button class='savedBtn ui inverted button'>
+              ${stock}
+            </button>`
+          );
+        };
       });
     }
   });
@@ -140,7 +147,19 @@ function renderBtns(){
        </button>`
     );
   }
-}
+};
+
+renderStockBtns();
+
+function renderStockBtns() {
+  for (var i = 0; i < stockArr.length; i++) {
+    $(".stockSearches").append(
+      `<button class='savedBtn ui inverted button'>
+        ${stockArr[i]}
+      </button>`
+    );
+  };
+};
 
 $(".stockSearches").on("click", "button", function(event){
   var stock = $(event.target).html().trim();
