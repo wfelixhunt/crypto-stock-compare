@@ -43,8 +43,6 @@ function cryptoSearchDefault(crypto) {
           `<h2>Change In Past Week: ${changeWeek}%</h2>`
         );
 
-        console.log(target.symbol);
-        console.log(cryptoArr);
         // Clears container div before appending new search
         $(".crypto-data").html(" ");
 

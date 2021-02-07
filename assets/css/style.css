@@ -1,8 +1,6 @@
 body {
   height: fit-content;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; 
-  /* position: relative; */
-  /* min-height: 100vw; */
 }
 
 header, footer {
@@ -15,7 +13,6 @@ header, footer {
 
 footer {
   position: relative;
-  /* margin-top: 20px; */
   bottom: 0;
   width: 100vw;
   font-size: 10px;
