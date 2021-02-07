@@ -1,13 +1,13 @@
 body {
   height: fit-content;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; 
   /* position: relative; */
   /* min-height: 100vw; */
 }
 
 header, footer {
   padding: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: rgb(29, 29, 29);
+  background-color: rgb(26, 26, 26);
   color: whitesmoke;
   border: 1px solid whitesmoke;
 }
@@ -33,7 +33,10 @@ main {
   padding: 2vw;
   min-height: calc(100vh - 40px);
   /* height: auto !important; */
-  background-color: whitesmoke;
+  background-color: rgb(32, 32, 32);
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+
 }
 
 #main-content {
@@ -42,11 +45,11 @@ main {
 
 .class-box {
   /* height: 100vh; */
-  background: rgb(36, 36, 36);
+  background: rgb(42, 42, 42);
   color: whitesmoke;
   padding: 20px;
-  border-radius: 10px;
-  border: 5px solid whitesmoke;
+  border-radius: 20px;
+  border: 10px solid rgb(32, 32, 32);
 }
 
 h2 {
@@ -56,7 +59,6 @@ h2 {
 .stock-data, .crypto-data {
   overflow: hidden;
   min-height: 350px;
-
 }
 
 .stockSearches, .cryptoSearches {
@@ -67,6 +69,7 @@ h2 {
 .savedBtn {
   margin: 10px !important;
   color: yellowgreen !important;
+  background-color: rgb(26, 26, 26) !important;
   min-width: 100px;
 }
 

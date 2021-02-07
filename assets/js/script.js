@@ -37,10 +37,10 @@ function cryptoSearchDefault(crypto) {
 
         // prepends data readout to modal div
         $(cryptoModalContent).prepend(
-          `<h2>Change In Past Hour: ${changeHour}%</h3>`
+          `<h2>Change In Past Hour: ${changeHour}%</h2>`
         );
         $(cryptoModalContent).prepend(
-          `<h2>Change In Past Week: ${changeWeek}%</h3>`
+          `<h2>Change In Past Week: ${changeWeek}%</h2>`
         );
 
         console.log(target.symbol);
@@ -92,8 +92,8 @@ function stockSearchDefault(stock) {
         $(stockModalContent).html("");
 
         // prepends data readout to modal div
-        $(stockModalContent).append(`<h3>Daily High: $${dailyHigh}</h3>`);
-        $(stockModalContent).append(`<h3>Daily Low: $${dailyLow}</h3>`);
+        $(stockModalContent).append(`<h2>Daily High: $${dailyHigh}</h2>`);
+        $(stockModalContent).append(`<h2>Daily Low: $${dailyLow}</h2>`);
 
         // Clears container div before appending new search
         $(".stock-data").html(" ");
@@ -150,8 +150,6 @@ var cryptoSearch = function (crypto) {
           `<h2>Change In Past Week: ${changeWeek}%</h3>`
         );
 
-        console.log(target.symbol);
-        console.log(cryptoArr);
         // Clears container div before appending new search
         $(".crypto-data").html(" ");
 
