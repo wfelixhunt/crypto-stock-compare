@@ -22,11 +22,11 @@ footer {
 
 h1, h2 {
   padding: 1vw;
-  border-bottom: 1px solid greenyellow;
+  border-bottom: 1px solid yellowgreen;
 }
 
 .icon {
-  color: greenyellow;
+  color: yellowgreen;
 }
 
 main {
@@ -61,7 +61,7 @@ h2 {
 
 .stockSearches, .cryptoSearches {
   text-align: center;
-  border-top: 1px solid greenyellow;
+  border-top: 1px solid yellowgreen;
 }
 
 .savedBtn {
@@ -74,7 +74,7 @@ h2 {
   margin-top: 60px;
   background-color: rgb(29, 29, 29);
   border: 1px solid whitesmoke;
-  color:yellowgreen;
+  color: yellowgreen;
   border-radius: 10px;
 }
 
