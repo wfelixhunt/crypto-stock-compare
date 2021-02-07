@@ -192,8 +192,14 @@ var stockSearch = function (stock) {
         var dailyLow = arr[0][1]["3. low"];
         var close = arr[0][1]["4. close"];
 
+      
+       document.write("dailyHigh.toFixed() is : " + dailyHigh.toFixed(2));
+       document.write("dailyLow.toFixed() is : " + dailyLow.toFixed(2));
+       document.write("close.toFixed() is : " + close.toFixed(2));
+
         // clears modal before appending new data
         $(stockModalContent).html("");
+
 
         // prepends data readout to modal div
         $(stockModalContent).append(`<h2>Daily High: $${dailyHigh}</h2>`);
