@@ -1,12 +1,9 @@
 body {
   height: fit-content;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; 
-  /* position: relative; */
-  /* min-height: 100vw; */
 }
 
 header, footer {
-  background-image: initial;
   padding: 20px;
   background-color: rgb(26, 26, 26);
   color: whitesmoke;
@@ -15,7 +12,6 @@ header, footer {
 
 footer {
   position: relative;
-  /* margin-top: 20px; */
   bottom: 0;
   width: 100vw;
   font-size: 10px;
@@ -33,7 +29,6 @@ h1, h2 {
 main {
   padding: 2vw;
   min-height: calc(100vh - 40px);
-  /* height: auto !important; */
   background-color: rgb(32, 32, 32);
   border-left: 1px solid whitesmoke;
   border-right: 1px solid whitesmoke;
@@ -41,11 +36,11 @@ main {
 }
 
 #main-content {
-  padding-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .class-box {
-  /* height: 100vh; */
   background: rgb(42, 42, 42);
   color: whitesmoke;
   padding: 20px;
@@ -69,6 +64,11 @@ h2 {
 .stockSearches, .cryptoSearches {
   text-align: center;
   border-top: 1px solid yellowgreen;
+  padding-top: 15px;
+}
+
+h4 {
+  text-align: left;
 }
 
 .savedBtn {
@@ -94,4 +94,19 @@ h2 {
 #modalBtnStock, #modalBtnCrypto {
   color: yellowgreen;
   margin: 20px;
+}
+
+@media all and (max-width: 480px) { 
+  header {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+  }
+  .search {
+    text-align: center;
+  }
+  footer {
+    text-align: center;
+  }
 }

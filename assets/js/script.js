@@ -9,9 +9,15 @@ var stockArr = JSON.parse(localStorage.getItem("stock")) || []
 $(".cryptoBtn").click(function () {
   //define variable of crypto search input
   var crypto = $("#cryptoInput").val().trim();
-  $("#cryptoInput").val("");
-  cryptoSearch(crypto)
-  console.log(crypto.toLowerCase())
+    $("#cryptoInput").val("");
+    
+  cryptoSearch(crypto);
+});
+
+$("#cryptoInput").keypress(function (event) {
+  if (event.which === 13) { 
+    $(".cryptoBtn").click();
+  }
 });
 
 var cryptoSearch = function (crypto) {
@@ -22,28 +28,25 @@ var cryptoSearch = function (crypto) {
         // loop thru cryptoInfo.data to find the entry matching the user input
         for (var i = 0; i < cryptoInfo.data.length; i++) {
           // if the currently indexed entry matches the user input, declare the desired data as a variable
-          if (cryptoInfo.data[i].symbol === crypto || cryptoInfo.data[i].name === crypto || cryptoInfo.data[i].symbol === crypto.toUpperCase() || cryptoInfo.data[i].name.toLowerCase() === crypto ) {
+          if (cryptoInfo.data[i].symbol === crypto || cryptoInfo.data[i].name === crypto || cryptoInfo.data[i].symbol === crypto.toUpperCase() || cryptoInfo.data[i].name.toLowerCase() === crypto) {
             var target = cryptoInfo.data[i];
           }
         }
         // declare variable for current price
-        console.log(target);
         var price = target.price_usd;
         var changeHour = target.percent_change_1h;
         var changeWeek = target.percent_change_7d;
-        console.log(changeWeek);
 
         // clears modal before appending new data
         $(cryptoModalContent).html("")
 
         // prepends data readout to modal div
         $(cryptoModalContent).prepend(
-          `<h3>Change In Past Hour:  ${changeHour}%</h3>`
+          `<h2>Change In Past Hour: ${changeHour}%</h2>`
         );
         $(cryptoModalContent).prepend(
-          `<h3>Change In Past Week:  ${changeWeek}%</h3>`
+          `<h2>Change In Past Week: ${changeWeek}%</h2>`
         );
-
 
         // Clears container div before appending new search
         $(".crypto-data").html(" ");
@@ -51,22 +54,22 @@ var cryptoSearch = function (crypto) {
         //appends data from search
         $(".crypto-data").append(
           `<div class="search-return">
-             <h1>
-               ${target.symbol}<i class="chart bar icon"></i>
-             </h1>
-             <h2 class="amount">Current Price: $${price}</h2>
-             <button id ='modalBtnCrypto' class='ui inverted button'> More Info </button>
-           </div>`
+              <h1>
+                ${target.symbol}<i class="chart bar icon"></i>
+              </h1>
+              <h2 class="amount">Current Price: $${price}</h2>
+              <button id ='modalBtnCrypto' class='ui inverted button'> More Info </button>
+            </div>`
         );
-        
+
         // If the searched symbol does not appear already in storage, svae button and push to local storage 
-        if(!cryptoArr.includes(target.symbol)){
+        if (!cryptoArr.includes(target.symbol)) {
           cryptoArr.unshift(target.symbol);
           localStorage.setItem("crypto", JSON.stringify(cryptoArr).toUpperCase())
           $(".cryptoSearches").append(
             `<button class='savedBtn ui inverted button'>
-               ${target.symbol}
-             </button>`
+                ${target.symbol}
+              </button>`
           );
         }
       });
@@ -78,8 +81,13 @@ var cryptoSearch = function (crypto) {
 $(".stockBtn").click(function () {
   var stock = $("#stockInput").val().trim().toUpperCase();
   $("#stockInput").val("");
-  console.log(stock)
   stockSearch(stock);
+});
+
+$("#stockInput").keypress(function (event) {
+  if (event.which === 13) { 
+    $(".stockBtn").click();
+  }
 });
 
 var stockSearch = function (stock) {
@@ -98,16 +106,13 @@ var stockSearch = function (stock) {
         var dailyHigh = arr[0][1]["2. high"];
         var dailyLow = arr[0][1]["3. low"];
         var close = arr[0][1]["4. close"];
-     
+
         // clears modal before appending new data
         $(stockModalContent).html("");
 
         // prepends data readout to modal div
         $(stockModalContent).append(`<h2>Daily High: $${dailyHigh}</h2>`);
         $(stockModalContent).append(`<h2>Daily Low: $${dailyLow}</h2>`);
-
-        console.log(stockInfo)
-
 
         // Clears container div before appending new search
         $(".stock-data").html(" ");
@@ -139,12 +144,12 @@ var stockSearch = function (stock) {
 
 renderBtns(cryptoArr);
 
-function renderBtns(){
-  for(var i = 0; i < cryptoArr.length; i++){
+function renderBtns() {
+  for (var i = 0; i < cryptoArr.length; i++) {
     $(".cryptoSearches").append(
       `<button class='savedBtn ui inverted button'>
-         ${cryptoArr[i]}
-       </button>`
+        ${cryptoArr[i]}
+      </button>`
     );
   }
 };
@@ -161,12 +166,12 @@ function renderStockBtns() {
   };
 };
 
-$(".stockSearches").on("click", "button", function(event){
+$(".stockSearches").on("click", "button", function (event) {
   var stock = $(event.target).html().trim();
   stockSearch(stock);
 });
 
-$(".cryptoSearches").on("click", "button", function(event){
+$(".cryptoSearches").on("click", "button", function (event) {
   var crypto = $(event.target).html().trim();
   cryptoSearch(crypto);
 });
