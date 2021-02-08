@@ -1,26 +1,26 @@
 var cryptoUrl = "https://api.coinlore.net/api/tickers/";
 var stockModal = document.getElementById("myStockModal");
 var cryptoModal = document.getElementById("myCryptoModal");
-var stockModalContent = document.getElementsByClassName("stockModalContent");
-var cryptoModalContent = document.getElementsByClassName("cryptoModalContent");
+var stockModalContent = document.getElementsByClassName("stock-modal-content");
+var cryptoModalContent = document.getElementsByClassName("crypto-modal-content");
 var cryptoArr = JSON.parse(localStorage.getItem("crypto")) || [];
 var stockArr = JSON.parse(localStorage.getItem("stock")) || []
 
-$(".cryptoBtn").click(function () {
+$(".crypto-btn").click(function () {
   //define variable of crypto search input
-  var crypto = $("#cryptoInput").val().trim();
-    $("#cryptoInput").val("");
+  var crypto = $("#crypto-input").val().trim();
+    $("#crypto-input").val("");
     
   cryptoSearch(crypto);
 });
 
-$("#cryptoInput").keypress(function (event) {
+$("#crypto-input").keypress(function (event) {
   if (event.which === 13) { 
-    $(".cryptoBtn").click();
+    $(".crypto-btn").click();
   }
 });
 
-var cryptoSearch = function (crypto) {
+function cryptoSearch (crypto) {
   // fetch crypto data
   fetch(cryptoUrl).then(function (response) {
     if (response.ok) {
@@ -54,20 +54,20 @@ var cryptoSearch = function (crypto) {
         //appends data from search
         $(".crypto-data").append(
           `<div class="search-return">
-              <h1>
+              <h1 class="search-symbol">
                 ${target.symbol}<i class="chart bar icon"></i>
               </h1>
               <h2 class="amount">Current Price: $${price}</h2>
-              <button id ='modalBtnCrypto' class='ui inverted button'> More Info </button>
+              <button class='ui inverted button more-info-btn'> More Info </button>
             </div>`
         );
 
-        // If the searched symbol does not appear already in storage, svae button and push to local storage 
+        // If the searched symbol does not appear already in storage, save button and push to local storage 
         if (!cryptoArr.includes(target.symbol)) {
           cryptoArr.unshift(target.symbol);
           localStorage.setItem("crypto", JSON.stringify(cryptoArr).toUpperCase())
-          $(".cryptoSearches").append(
-            `<button class='savedBtn ui inverted button'>
+          $(".crypto-searches").append(
+            `<button class='saved-btn ui inverted button'>
                 ${target.symbol}
               </button>`
           );
@@ -78,19 +78,19 @@ var cryptoSearch = function (crypto) {
 };
 
 // stock search button is clicked
-$(".stockBtn").click(function () {
-  var stock = $("#stockInput").val().trim().toUpperCase();
-  $("#stockInput").val("");
+$(".stock-btn").click(function () {
+  var stock = $("#stock-input").val().trim().toUpperCase();
+  $("#stock-input").val("");
   stockSearch(stock);
 });
 
-$("#stockInput").keypress(function (event) {
+$("#stock-input").keypress(function (event) {
   if (event.which === 13) { 
-    $(".stockBtn").click();
+    $(".stock-btn").click();
   }
 });
 
-var stockSearch = function (stock) {
+function stockSearch (stock) {
   var alphaUrl =
     "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
     stock +
@@ -117,22 +117,22 @@ var stockSearch = function (stock) {
         // Clears container div before appending new search
         $(".stock-data").html(" ");
 
-        //appends data from search
+        // appends data from search
         $(".stock-data").append(
           `<div class="search-return">
-            <h1>${stock}
-              <i class="chart bar icon"></i>
+            <h1 class="search-symbol">
+              ${stock}<i class="chart bar icon"></i>
             </h1>
             <h2 class="amount">Closing Price: $${close}</h2>
-            <button id ='modalBtnStock' class='ui inverted button'> More Info </button>
+            <button class='ui inverted button more-info-btn'> More Info </button>
           </div>`
         );
         // If the searched symbol does not appear already in storage, save button and push to local storage 
         if (!stockArr.includes(stock)) {
           stockArr.unshift(stock);
           localStorage.setItem("stock", JSON.stringify(stockArr).toUpperCase())
-          $(".stockSearches").append(
-            `<button class='savedBtn ui inverted button'>
+          $(".stock-searches").append(
+            `<button class='saved-btn ui inverted button'>
               ${stock}
             </button>`
           );
@@ -146,8 +146,8 @@ renderBtns(cryptoArr);
 
 function renderBtns() {
   for (var i = 0; i < cryptoArr.length; i++) {
-    $(".cryptoSearches").append(
-      `<button class='savedBtn ui inverted button'>
+    $(".crypto-searches").append(
+      `<button class='saved-btn ui inverted button'>
         ${cryptoArr[i]}
       </button>`
     );
@@ -158,28 +158,28 @@ renderStockBtns();
 
 function renderStockBtns() {
   for (var i = 0; i < stockArr.length; i++) {
-    $(".stockSearches").append(
-      `<button class='savedBtn ui inverted button'>
+    $(".stock-searches").append(
+      `<button class='saved-btn ui inverted button'>
         ${stockArr[i]}
       </button>`
     );
   };
 };
 
-$(".stockSearches").on("click", "button", function (event) {
+$(".stock-searches").on("click", "button", function (event) {
   var stock = $(event.target).html().trim();
   stockSearch(stock);
 });
 
-$(".cryptoSearches").on("click", "button", function (event) {
+$(".crypto-searches").on("click", "button", function (event) {
   var crypto = $(event.target).html().trim();
   cryptoSearch(crypto);
 });
 
 $(".stock-data").on("click", "button", function (event) {
-  $(".modalStockDiv").modal("show");
+  $(".modal-stock-div").modal("show");
 });
 
 $(".crypto-data").on("click", "button", function (event) {
-  $(".modalCryptoDiv").modal("show");
+  $(".modal-crypto-div").modal("show");
 });

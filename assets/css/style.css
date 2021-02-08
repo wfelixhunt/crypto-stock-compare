@@ -18,12 +18,12 @@ footer {
 }
 
 h1, h2 {
-  padding: 1vw;
-  border-bottom: 1px solid yellowgreen;
+  border-bottom: 1px solid greenyellow;
+  padding-bottom: 10px;
 }
 
 .icon {
-  color: yellowgreen;
+  color: greenyellow;
 }
 
 main {
@@ -56,14 +56,18 @@ h2 {
   margin-left: 5px !important;
 }
 
+.search-symbol {
+  padding: 0 0 0 10px;
+}
+
 .stock-data, .crypto-data {
   overflow: hidden;
   min-height: 350px;
 }
 
-.stockSearches, .cryptoSearches {
+.stock-searches, .crypto-searches {
   text-align: center;
-  border-top: 1px solid yellowgreen;
+  border-top: 1px solid greenyellow;
   padding-top: 15px;
 }
 
@@ -71,29 +75,30 @@ h4 {
   text-align: left;
 }
 
-.savedBtn {
+.saved-btn {
   margin: 10px !important;
-  color: yellowgreen !important;
+  color: greenyellow !important;
   background-color: rgb(26, 26, 26) !important;
   min-width: 100px;
 }
 
 .search-return {
-  margin-top: 60px;
+  margin-top: 70px;
   background-color: rgb(29, 29, 29);
   border: 1px solid whitesmoke;
-  color: yellowgreen;
+  color: greenyellow;
   border-radius: 10px;
 }
 
 .amount {
+  margin-top: auto;
   padding: 20px !important;
   color: whitesmoke;
 }
 
-#modalBtnStock, #modalBtnCrypto {
-  color: yellowgreen;
-  margin: 20px;
+.more-info-btn {
+  color: greenyellow !important;
+  margin: 20px !important;
 }
 
 @media all and (max-width: 480px) { 
